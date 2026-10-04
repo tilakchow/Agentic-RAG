@@ -47,4 +47,4 @@ Explore the `Agentic_Rag.ipynb` notebook to see the agentic workflow in action.
 
 ## Author
 
-Tilak chowdary (tilakchowdary5@gmail.com)
+Tilak chowdary (tilakchowdary18@gmail.com)
