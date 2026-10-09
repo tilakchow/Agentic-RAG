@@ -52,6 +52,8 @@ graph TD
 
 | Component | Technology Used |
 | :--- | :--- |
+| **Backend API** | FastAPI, Uvicorn |
+| **Frontend** | React 19, TypeScript, Vite, Tailwind CSS v4, Lucide |
 | **Frameworks** | LangGraph, LangChain |
 | **LLM Provider** | Groq (`openai/gpt-oss-20b`) |
 | **Vector Database** | Pinecone |
@@ -77,22 +79,41 @@ PINECONE_API_KEY=your_pinecone_api_key
 TAVILY_API_KEY=your_tavily_api_key
 ```
 
-### 3. Install Dependencies
+### 3. Install Python Backend Dependencies
 This project uses `uv` for fast dependency management.
 ```bash
 uv sync
-uv add datasets
 ```
 
 ---
 
-## 💻 Usage
+## 💻 Running the Application
 
-Open the `Agentic_Rag.ipynb` notebook and run all cells. The notebook will automatically:
-1. Fetch the **Bitext Customer Support Dataset** from Hugging Face.
-2. Embed and upsert the data into **Pinecone**.
-3. Compile the **LangGraph Agent**.
-4. Allow you to interact with the agent at the bottom of the notebook!
+### 1. Start the FastAPI Backend
+Launch the backend server with uvicorn:
+```bash
+uv run uvicorn agenticrag.api:app --reload --port 8000
+```
+- API Docs: `http://localhost:8000/docs`
+- Health check: `http://localhost:8000/health`
+- Chat endpoint: `POST http://localhost:8000/chat`
+
+### 2. Start the React Frontend
+In a separate terminal, launch the Vite development server:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Open `http://localhost:5173` in your browser to interact with the agent!
+
+---
+
+## 🧪 Terminal Testing
+To run a standalone conversation test verifying thread-based memory:
+```bash
+uv run python test_run.py
+```
 
 ---
 

@@ -2,13 +2,6 @@
 
 This document outlines the step-by-step roadmap to upgrade the Agentic RAG project to a production-ready system.
 
-## Phase 3: Web API (FastAPI)
-* **Goal**: Make the agent accessible via REST API for frontends (React, WhatsApp bots, etc.).
-* **Tasks**:
-  1. Install `fastapi` and `uvicorn`.
-  2. Create `src/agenticrag/api.py`.
-  3. Expose a `POST /chat` endpoint that takes a user message and returns the agent's response.
-
 ## Phase 4: Observability (LangSmith)
 * **Goal**: Monitor the agent's decisions, track API costs, and debug prompt failures.
 * **Tasks**:
