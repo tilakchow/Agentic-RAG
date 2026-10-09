@@ -20,7 +20,8 @@ dependencies = [
     "pinecone==7.3.0",
     "sentence-transformers==6.0.0",
     "beautifulsoup4==4.15.0",
-    "python-dotenv==1.2.3"
+    "python-dotenv==1.2.3",
+    "datasets>=5.1.0",
 ]
 
 [project.scripts]
