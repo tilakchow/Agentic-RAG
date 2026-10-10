@@ -18,7 +18,7 @@ dependencies = [
     "langchain-text-splitters==1.1.2",
     "langchain-tavily==0.2.18",
     "pinecone==7.3.0",
-    "sentence-transformers==6.0.0",
+    "fastembed>=0.2.6",
     "beautifulsoup4==4.15.0",
     "python-dotenv==1.2.3",
     "datasets>=5.1.0",
