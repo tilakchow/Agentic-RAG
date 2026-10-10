@@ -22,5 +22,5 @@ RUN uv sync --frozen --no-dev
 # Expose port for FastAPI
 EXPOSE 8000
 
-# Run the FastAPI app using uv to automatically use the created virtual environment
-CMD ["uv", "run", "uvicorn", "src.agenticrag.api:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run the FastAPI app using uv. Render passes the $PORT environment variable dynamically.
+CMD uv run uvicorn src.agenticrag.api:app --host 0.0.0.0 --port ${PORT:-8000}
