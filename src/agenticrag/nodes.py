@@ -7,7 +7,7 @@ from langchain_core.messages import HumanMessage, AIMessage, AnyMessage
 from langgraph.graph.message import add_messages
 from langchain_groq import ChatGroq
 from langchain_tavily import TavilySearch
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEndpointEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from pinecone import Pinecone
 
@@ -66,9 +66,8 @@ web_grader_llm = llm.with_structured_output(EvidenceGrade, method="json_mode")
 
 web_search = TavilySearch(max_results=5, topic="general", include_answer=True, include_raw_content=False)
 
-embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2",
-    encode_kwargs={"normalize_embeddings": True},
+embeddings = HuggingFaceEndpointEmbeddings(
+    model="sentence-transformers/all-MiniLM-L6-v2"
 )
 
 # Connect to Pinecone
