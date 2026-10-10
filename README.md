@@ -1,3 +1,12 @@
+---
+title: Agentic RAG
+emoji: 🚀
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 7860
+---
+
 <div align="center">
   
 # 🤖 Agentic RAG - Customer Support AI
