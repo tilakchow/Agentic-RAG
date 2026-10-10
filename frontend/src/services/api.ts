@@ -33,8 +33,8 @@ export interface StreamCallbacks {
   onError?: (error: string) => void
 }
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000"
-
+// Use VITE_API_URL if set, otherwise use relative path in production, and localhost in dev
+const API_BASE = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "" : "http://localhost:8000");
 export async function sendMessage(req: ChatRequest): Promise<ChatResponse> {
   const response = await fetch(`${API_BASE}/chat`, {
     method: "POST",

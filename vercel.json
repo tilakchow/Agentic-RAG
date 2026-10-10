@@ -1,0 +1,32 @@
+{
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build"
+    },
+    {
+      "src": "src/agenticrag/api.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/chat(.*)",
+      "dest": "src/agenticrag/api.py"
+    },
+    {
+      "src": "/kb(.*)",
+      "dest": "src/agenticrag/api.py"
+    },
+    {
+      "src": "/health",
+      "dest": "src/agenticrag/api.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/dist/$1"
+    }
+  ]
+}
