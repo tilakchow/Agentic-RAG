@@ -19,9 +19,9 @@ COPY src/ ./src/
 # Install the project itself
 RUN uv sync --frozen --no-dev
 
-# Expose port for FastAPI
-EXPOSE 8000
+# Expose port for FastAPI (Hugging Face Spaces requires 7860)
+EXPOSE 7860
 
 # Run the FastAPI app directly from the virtual environment. 
-# We use the shell form so $PORT is evaluated by Render.
-CMD /app/.venv/bin/uvicorn src.agenticrag.api:app --host 0.0.0.0 --port $PORT
+# We use the shell form so $PORT is evaluated (Defaults to 7860 for Hugging Face).
+CMD /app/.venv/bin/uvicorn src.agenticrag.api:app --host 0.0.0.0 --port ${PORT:-7860}
